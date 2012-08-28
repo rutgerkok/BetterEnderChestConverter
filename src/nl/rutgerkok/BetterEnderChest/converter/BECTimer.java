@@ -2,6 +2,8 @@ package nl.rutgerkok.BetterEnderChest.converter;
 
 import java.util.TimerTask;
 
+import nl.rutgerkok.BetterEnderChest.converter.GUI.BECPanel;
+
 public class BECTimer extends TimerTask {
     private BECPanel panel;
 

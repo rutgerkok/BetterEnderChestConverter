@@ -5,8 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 
-import javax.swing.JOptionPane;
-
 import net.minecraftwiki.wiki.NBTClass.Tag;
 
 public class BECConvertDirectoryBECVanilla extends BECConvertDirectory {
@@ -18,6 +16,7 @@ public class BECConvertDirectoryBECVanilla extends BECConvertDirectory {
     public BECConvertDirectoryBECVanilla(File chestDirectory, File playerDirectory) {
         super(chestDirectory, playerDirectory);
 
+        System.out.println("Converting FROM BetterEnderChest to Vanilla...");
         System.out.println(chestDirectory.getPath());
         System.out.println(playerDirectory.getPath());
 
@@ -42,13 +41,17 @@ public class BECConvertDirectoryBECVanilla extends BECConvertDirectory {
 
         // check if there are files
         if (files == null || files.length == 0) {
-            JOptionPane.showMessageDialog(null, "Found no chest files in server directory. Did you select the level.dat of your main world?");
+            message("Found no chest files in server directory. Did you select the level.dat of your main world?");
             System.exit(0);
             return;
         }
 
         for (int i = 0; i < files.length; i++) {
-            System.out.println("Converting " + files[i]);
+
+            progress = ((float) i) / ((float) files.length);// for progress bar
+
+            System.out.println("(" + (int) (progress * 100) + "%) Converting " + files[i]);
+
             try { // convert
                 File chestFile = new File(chestDirectory + "/" + files[i]);
                 File playerFile = new File(playerDirectory + "/" + files[i]);
@@ -75,12 +78,9 @@ public class BECConvertDirectoryBECVanilla extends BECConvertDirectory {
                     System.out.println("Cannot convert the inventory " + files[i] + " because there is no player with that name.");
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Cannot convert file " + files[i] + "! \n\n" + e.getMessage() + "\n\nI said you should make a backup...");
-                System.out.println("Cannot convert file " + files[i] + ": " + e.getMessage());
+                message("Cannot convert file " + files[i] + "! \n\n" + e.getMessage() + "\n\nI said you should make a backup...");
                 e.printStackTrace();
             }
-
-            progress = ((float) i) / ((float) files.length);// for progress bar
 
             try {
                 Thread.sleep(10);
@@ -89,7 +89,7 @@ public class BECConvertDirectoryBECVanilla extends BECConvertDirectory {
         }
 
         progress = 1;
-        JOptionPane.showMessageDialog(null, "Converted. Kept old chest files as a backup.");
+        message("Converted. Kept old chest files as a backup.");
         System.exit(0);
     }
 }

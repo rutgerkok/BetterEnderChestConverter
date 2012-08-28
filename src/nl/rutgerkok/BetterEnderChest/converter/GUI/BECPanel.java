@@ -1,8 +1,11 @@
-package nl.rutgerkok.BetterEnderChest.converter;
+package nl.rutgerkok.BetterEnderChest.converter.GUI;
 
 import java.util.Timer;
 
 import javax.swing.JPanel;
+
+import nl.rutgerkok.BetterEnderChest.converter.BECConvertDirectory;
+import nl.rutgerkok.BetterEnderChest.converter.BECTimer;
 
 public class BECPanel extends JPanel {
     private static final long serialVersionUID = -7278517486785864692L;

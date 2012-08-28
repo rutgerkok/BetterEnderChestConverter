@@ -9,6 +9,7 @@ Can convert the BetterEnderChest file format back to the format of the Minecraft
 Update 1 - can convert from BetterEnderChest to vanilla.
 Update 2 - can also convert from vanilla to BetterEnderChest. Now on Github.
 Update 3 - added support for Ender Chests saved in plugin folder.
+Update 4 - can now also run without a GUI.
 
 [More information](http://dev.bukkit.org/server-mods/ender-chest/pages/reference/converter)
 

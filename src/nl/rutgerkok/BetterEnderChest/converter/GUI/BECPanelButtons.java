@@ -1,4 +1,4 @@
-package nl.rutgerkok.BetterEnderChest.converter;
+package nl.rutgerkok.BetterEnderChest.converter.GUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +9,10 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import nl.rutgerkok.BetterEnderChest.converter.BECConvertDirectoryBECVanilla;
+import nl.rutgerkok.BetterEnderChest.converter.BECConvertDirectoryVanillaBEC;
+import nl.rutgerkok.BetterEnderChest.converter.BECTimer;
 
 public class BECPanelButtons extends JPanel implements ActionListener {
     private static final long serialVersionUID = -2016536905296475613L;

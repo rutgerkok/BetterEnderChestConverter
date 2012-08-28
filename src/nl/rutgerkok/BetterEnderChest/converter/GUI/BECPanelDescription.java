@@ -1,8 +1,9 @@
-package nl.rutgerkok.BetterEnderChest.converter;
+package nl.rutgerkok.BetterEnderChest.converter.GUI;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+
 
 public class BECPanelDescription extends JPanel {
     private static final long serialVersionUID = 7364769865041060238L;
