@@ -41,9 +41,9 @@ public class BECConsole {
         // Chest directory
         File chestDirectory;
         if(useServerRoot)
-            chestDirectory = new File(levelDat.getParentFile().getParentFile().getPath() + "/chests");
+            chestDirectory = new File(levelDat.getParentFile().getPath() + "/chests");
         else
-            chestDirectory = new File(levelDat.getParentFile().getParentFile().getPath() + "/plugins/BetterEnderChest/chests");
+            chestDirectory = new File(levelDat.getParentFile().getPath() + "/plugins/BetterEnderChest/chests");
         
         // Player directory
         File playerDirectory = new File(levelDat.getParentFile().getPath() + "/players");
