@@ -50,9 +50,9 @@ public class BECConsole {
         
         // Start!
         if (!toPluginFileFormat) {
-            new BECConvertDirectoryBECVanilla(chestDirectory, playerDirectory);
+            new BECConvertDirectoryBECVanilla(chestDirectory, playerDirectory, false);
         } else {
-            new BECConvertDirectoryVanillaBEC(chestDirectory, playerDirectory);
+            new BECConvertDirectoryVanillaBEC(chestDirectory, playerDirectory, false);
         }
     }
     

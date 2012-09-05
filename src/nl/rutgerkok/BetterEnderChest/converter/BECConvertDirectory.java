@@ -8,7 +8,8 @@ public abstract class BECConvertDirectory implements Runnable {
 
     private boolean hasGUI;
 
-    public BECConvertDirectory(File chestDirectory, File playerDirectory) {
+    public BECConvertDirectory(File chestDirectory, File playerDirectory, boolean hasGUI) {
+        this.hasGUI = hasGUI;
     }
 
     public abstract float getProgress();

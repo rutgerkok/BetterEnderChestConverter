@@ -13,8 +13,8 @@ public class BECConvertDirectoryVanillaBEC extends BECConvertDirectory {
     private File playerDirectory;
     private float progress;
 
-    public BECConvertDirectoryVanillaBEC(File chestDirectory, File playerDirectory) {
-        super(chestDirectory, playerDirectory);
+    public BECConvertDirectoryVanillaBEC(File chestDirectory, File playerDirectory, boolean hasGUI) {
+        super(chestDirectory, playerDirectory, hasGUI);
 
         System.out.println("Converting TO BetterEnderChest from Vanilla ...");
         System.out.println(chestDirectory.getPath());
@@ -63,32 +63,22 @@ public class BECConvertDirectoryVanillaBEC extends BECConvertDirectory {
                 Tag player = Tag.readFrom(new FileInputStream(playerFile));
 
                 Tag[] tagsInEnderChestFile = new Tag[2];
-                tagsInEnderChestFile[0] = new Tag("Inventory", Tag.Type.TAG_Compound); // new
-                                                                                       // inventory
-                                                                                       // list
-                                                                                       // tag
-                                                                                       // containing
-                                                                                       // TAG_Compound
+                tagsInEnderChestFile[0] = new Tag("Inventory", Tag.Type.TAG_Compound); 
                 tagsInEnderChestFile[1] = new Tag(Tag.Type.TAG_End, null, null);
 
                 Tag enderItems = player.findTagByName("EnderItems");
                 if (enderItems != null) {
                     Tag[] itemList = (Tag[]) enderItems.getValue();
-                    for (Tag itemStack : itemList) { // convert all stacks one
-                                                     // by one
+                    for (Tag itemStack : itemList) { 
+                        // copy all stacks one by one
                         tagsInEnderChestFile[0].addTag(itemStack);
                     }
-                    player.removeSubTag(player.findTagByName("EnderItems"));// remove
-                                                                            // the
-                                                                            // old
-                                                                            // tag
                 }
 
                 // make a Tag_Compound
                 Tag enderChest = new Tag(Tag.Type.TAG_Compound, "Player", tagsInEnderChestFile);
 
-                // save both
-                player.writeTo(new FileOutputStream(playerFile));
+                // save
                 enderChest.writeTo(new FileOutputStream(chestFile));
             } catch (Exception e) {
                 message("Cannot convert file! \n\n" + e.getMessage() + "\n\nI said you should make a backup...");

@@ -59,9 +59,9 @@ public class BECPanelButtons extends JPanel implements ActionListener {
                 File playerDirectory = new File(levelDat.getParentFile().getPath() + "/players");
                 
                 if (event.getSource() == BECVanillaButton) {
-                    mainPanel.converter = new BECConvertDirectoryBECVanilla(chestDirectory, playerDirectory);
+                    mainPanel.converter = new BECConvertDirectoryBECVanilla(chestDirectory, playerDirectory, true);
                 } else {
-                    mainPanel.converter = new BECConvertDirectoryVanillaBEC(chestDirectory, playerDirectory);
+                    mainPanel.converter = new BECConvertDirectoryVanillaBEC(chestDirectory, playerDirectory, true);
                 }
                 new Timer().schedule(new BECTimer(mainPanel), 1, 100);
 

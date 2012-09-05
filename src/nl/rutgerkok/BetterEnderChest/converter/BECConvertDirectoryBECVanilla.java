@@ -13,8 +13,8 @@ public class BECConvertDirectoryBECVanilla extends BECConvertDirectory {
     private File playerDirectory;
     private float progress;
 
-    public BECConvertDirectoryBECVanilla(File chestDirectory, File playerDirectory) {
-        super(chestDirectory, playerDirectory);
+    public BECConvertDirectoryBECVanilla(File chestDirectory, File playerDirectory, boolean hasGUI) {
+        super(chestDirectory, playerDirectory, hasGUI);
 
         System.out.println("Converting FROM BetterEnderChest to Vanilla...");
         System.out.println(chestDirectory.getPath());
