@@ -57,22 +57,25 @@ public class BECConvertDirectoryBECVanilla extends BECConvertDirectory {
                 File playerFile = new File(playerDirectory + "/" + files[i]);
 
                 if (playerFile.exists()) {
+                    // Get the Ender inventory from the chest file
                     Tag main = Tag.readFrom(new FileInputStream(chestFile));
                     Tag enderInventory = main.findTagByName("Inventory");
+
+                    // Get the player from the player file
                     Tag player = Tag.readFrom(new FileInputStream(playerFile));
 
+                    // Delete old EnderItems if they exist from the player file
                     if (player.findTagByName("EnderItems") != null)
                         player.removeSubTag(player.findTagByName("EnderItems"));
 
-                    if (enderInventory.findTagByName(null) != null) { // only if
-                                                                      // the
-                                                                      // enderInventory
-                                                                      // contains
-                                                                      // a tag
+                    // Check if the Ender inventory (from the chest file) isn't
+                    // empty, and add the stacks to the player file
+                    if (enderInventory.findTagByName(null) != null) {
                         player.addTag(new Tag(Tag.Type.TAG_List, "EnderItems", enderInventory.getValue()));
-
-                        player.writeTo(new FileOutputStream(playerFile));
                     }
+                    
+                    // Save
+                    player.writeTo(new FileOutputStream(playerFile));
 
                 } else {
                     System.out.println("Cannot convert the inventory " + files[i] + " because there is no player with that name.");
