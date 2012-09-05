@@ -31,7 +31,7 @@ public class BECConsole {
         File levelDat = new File(startupArgs[1]);
         boolean useServerRoot = startupArgs[2].equalsIgnoreCase("SERVER_ROOT");
 
-        // Debut
+        // Debug
         System.out.println("Debug path:" + levelDat.getAbsoluteFile());
         System.out.println("Debug path2:" + levelDat.getAbsoluteFile().getParentFile());
         System.out.println("Debug path3:" + levelDat.getAbsoluteFile().getParentFile().getParentFile());

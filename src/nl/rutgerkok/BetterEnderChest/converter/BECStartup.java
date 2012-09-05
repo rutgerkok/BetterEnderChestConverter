@@ -4,7 +4,7 @@ import nl.rutgerkok.BetterEnderChest.converter.GUI.BECWindow;
 
 public class BECStartup {
     public static void main(String[] args) {
-        System.out.println("Starting converter version 4...");
+        System.out.println("Starting converter version 5...");
         
         if (args.length > 0) {
             // Given command line parameters, don't start the GUI
