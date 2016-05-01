@@ -78,7 +78,7 @@ public class BECConvertDirectoryBECVanilla extends BECConvertDirectory {
                     player.writeTo(new FileOutputStream(playerFile));
 
                 } else {
-                    System.out.println("Cannot convert the inventory " + files[i] + " because there is no player with that name.");
+                    System.out.println("Cannot convert the inventory " + files[i] + " because there is no player with that uuid.");
                 }
             } catch (Exception e) {
                 message("Cannot convert file " + files[i] + "! \n\n" + e.getMessage() + "\n\nI said you should make a backup...");
@@ -92,7 +92,7 @@ public class BECConvertDirectoryBECVanilla extends BECConvertDirectory {
         }
 
         progress = 1;
-        message("Converted. Kept old chest files as a backup.");
+        message("Converted. Kept old BetterEnderChest files as a backup.");
         System.exit(0);
     }
 }

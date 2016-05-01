@@ -51,12 +51,8 @@ public class BECPanelButtons extends JPanel implements ActionListener {
                 // Start the conversion!
                 
                 // Get the Ender chest directory
-                File chestDirectory;
-                if(mainPanel.useServerRoot)
-                    chestDirectory = new File(levelDat.getParentFile().getParentFile().getPath() + "/chests");
-                else
-                    chestDirectory = new File(levelDat.getParentFile().getParentFile().getPath() + "/plugins/BetterEnderChest/chests");
-                File playerDirectory = new File(levelDat.getParentFile().getPath() + "/players");
+                File chestDirectory = new File(levelDat.getParentFile().getParentFile().getPath() + "/plugins/BetterEnderChest/chestData");
+                File playerDirectory = new File(levelDat.getParentFile().getPath() + "/playerdata");
                 
                 if (event.getSource() == BECVanillaButton) {
                     mainPanel.converter = new BECConvertDirectoryBECVanilla(chestDirectory, playerDirectory, true);

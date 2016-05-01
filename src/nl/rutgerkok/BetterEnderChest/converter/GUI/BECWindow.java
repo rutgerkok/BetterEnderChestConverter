@@ -18,7 +18,7 @@ public class BECWindow extends JFrame {
         }
 
         JFrame frame = new JFrame();
-        frame.setSize(400, 200);
+        frame.setSize(400, 180);
         frame.setLocation(200, 100);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

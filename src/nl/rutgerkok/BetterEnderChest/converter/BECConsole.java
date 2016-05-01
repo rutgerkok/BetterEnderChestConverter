@@ -12,8 +12,6 @@ public class BECConsole {
             File levelDat = new File(startupArgs[1]);
             validateLevelDat(levelDat);
 
-            validateString(startupArgs[2], "SERVER_ROOT", "PLUGIN_FOLDER");
-
             // Convert
             startConversion(startupArgs);
         } catch (IllegalArgumentException e) {
@@ -29,7 +27,6 @@ public class BECConsole {
 
         boolean toPluginFileFormat = startupArgs[0].equalsIgnoreCase("to");
         File levelDat = new File(startupArgs[1]);
-        boolean useServerRoot = startupArgs[2].equalsIgnoreCase("SERVER_ROOT");
 
         // Debug
         System.out.println("Debug path:" + levelDat.getAbsoluteFile());
@@ -37,14 +34,10 @@ public class BECConsole {
         System.out.println("Debug path3:" + levelDat.getAbsoluteFile().getParentFile().getParentFile());
 
         // Chest directory
-        File chestDirectory;
-        if (useServerRoot)
-            chestDirectory = new File(levelDat.getAbsoluteFile().getParentFile().getParentFile().getPath() + "/chests");
-        else
-            chestDirectory = new File(levelDat.getAbsoluteFile().getParentFile().getParentFile().getPath() + "/plugins/BetterEnderChest/chests");
+        File chestDirectory = new File(levelDat.getAbsoluteFile().getParentFile().getParentFile().getPath() + "/plugins/BetterEnderChest/chestData");
 
         // Player directory
-        File playerDirectory = new File(levelDat.getParentFile().getPath() + "/players");
+        File playerDirectory = new File(levelDat.getParentFile().getPath() + "/playerdata");
 
         // Start!
         if (!toPluginFileFormat) {

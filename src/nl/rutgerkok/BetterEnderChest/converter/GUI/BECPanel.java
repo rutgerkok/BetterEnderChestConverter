@@ -14,10 +14,6 @@ public class BECPanel extends JPanel {
     
     public BECPanelDescription description;
     public BECPanelButtons buttons;
-    public BECPanelOptions options;
-    
-    // Standard save location
-    public boolean useServerRoot = true;
 
     public BECPanel() {
         setLayout(null); // No layout manager, use setBounds()!
@@ -33,10 +29,6 @@ public class BECPanel extends JPanel {
         buttons = new BECPanelButtons(this);
         buttons.setBounds(0, 110, 400, 30);
         add(buttons);
-        
-        options = new BECPanelOptions(this);
-        options.setBounds(0, 140, 400, 30);
-        add(options);
     }
 
 }
